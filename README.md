@@ -1,0 +1,1 @@
+# okr-dotnet-traning
