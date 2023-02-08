@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  okrdemoapp:
+    image: ${DOCKER_REGISTRY-}okrdemoapp
+    build:
+      context: .
+      dockerfile: okrDemoApp/Dockerfile

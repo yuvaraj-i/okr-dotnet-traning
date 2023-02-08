@@ -1,0 +1,67 @@
+name: dockercompose6621245732233724344
+services:
+  database:
+    environment:
+      MYSQL_DATABASE: okr_demo
+      MYSQL_PASSWORD: mysql1234
+      MYSQL_ROOT_PASSWORD: mysql1234
+      MYSQL_USER: root
+    image: mysql:8.0.22
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 3306
+      published: "3306"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: volume
+      source: datafiles
+      target: /var/lib/mysql
+      volume: {}
+    - type: bind
+      source: /Users/yuvaraj/sql-scripts/setup.sql
+      target: /docker-entrypoint-initdb.d/1.sql
+      bind:
+        create_host_path: true
+  okrdemoapp:
+    build:
+      context: /Users/yuvaraj/Projects/okrDemoApp
+      dockerfile: okrDemoApp/Dockerfile
+    depends_on:
+      database:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DBHOST: database
+    image: okrdemoapp
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+    - mode: ingress
+      target: 443
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: /Users/yuvaraj/.aspnet/https
+      target: /root/.aspnet/https
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: /Users/yuvaraj/.microsoft/usersecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose6621245732233724344_default
+volumes:
+  datafiles:
+    name: dockercompose6621245732233724344_datafiles
