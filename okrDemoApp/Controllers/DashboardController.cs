@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using okrDemoApp.Models;
 using okrDemoApp.Services;
+using okrDemoApp.Utils;
 
 namespace okrDemoApp.Controllers
 {
@@ -24,7 +26,7 @@ namespace okrDemoApp.Controllers
         }
 
         [HttpGet("activities")]
-        public IActionResult getAllActivity()
+        public IActionResult GetAllActivity()
         {
             _logger.LogInformation("Processed in ms.");
 
@@ -33,7 +35,7 @@ namespace okrDemoApp.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
                 var genericResponse = new ResponseModel<List<ActivityLog>>();
 
-                genericResponse.message = _dashboardService.getAllActivity(userId);
+                genericResponse.message = _dashboardService.GetAllActivity(userId);
                 return Ok(genericResponse);
             }
             catch (Exception e)
@@ -43,15 +45,16 @@ namespace okrDemoApp.Controllers
         }
 
         [HttpGet("activity")]
-        public IActionResult getAllActivity(int page)
+        [ClaimRequirementAttribute("user", "CanReadResource")]
+        public IActionResult GetAllActivity(int page)
         {
             _logger.LogInformation("Processed in ms.");
 
             try
             {
                 var genericResponse = new ResponseModel<List<ActivityLog>>();
-
-                genericResponse.message = _dashboardService.getAllActivity(page);
+                var userId = Int32.Parse(User?.Identity?.Name);
+                genericResponse.message = _dashboardService.GetAllActivity(page, userId);
                 return Ok(genericResponse);
             }
             catch (Exception e)

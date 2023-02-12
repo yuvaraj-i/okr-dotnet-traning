@@ -14,13 +14,13 @@ namespace okrDemoApp.Repositories
             _DbContext = DbContext;
         }
 
-        public void addUserActivityLog(ActivityLog activityLog)
+        public void AddUserActivityLog(ActivityLog activityLog)
         {
             _DbContext.activityLogs.Add(activityLog);
             _DbContext.SaveChanges();
         }
 
-        public List<ActivityLog> getUserActivityLog(int userId)
+        public List<ActivityLog> GetUserActivityLog(int userId)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public List<ActivityLog> getUserActivityLogsByLimit(int page, int userId, int skipLimit)
+        public List<ActivityLog> GetUserActivityLogsByLimit(int page, int userId, int skipLimit)
         {
             try
             {

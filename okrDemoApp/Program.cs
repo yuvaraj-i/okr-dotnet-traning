@@ -12,6 +12,7 @@ using Newtonsoft.Json.Linq;
 using Amazon.SecretsManager;
 using Amazon;
 using Amazon.SecretsManager.Model;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,11 +46,6 @@ builder.Services.AddSwaggerGen(c =>
 
     c.OperationFilter<SecurityRequirementsOperationFilter>();
 });
-
-
-//var data = await SecretManagerUtil.GetSecret();
-//var json = JObject.Parse(data);
-//var dbConnection = json.GetValue("ConnectionStrings").ToString();
 
 builder.Services.AddDbContext<AppDbContex>(options =>
 {
@@ -97,6 +93,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

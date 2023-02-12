@@ -12,9 +12,9 @@ namespace helloWorld.Controllers
 	public class SkillController : ControllerBase
 	{
 		private readonly ISkillService _skillService;
-        private readonly ILogger<DashboardController> _logger;
+        private readonly ILogger<SkillController> _logger;
 
-        public SkillController(ISkillService skillService, ILogger<DashboardController> logger)
+        public SkillController(ISkillService skillService, ILogger<SkillController> logger)
 		{
 			_skillService = skillService;
             _logger = logger;
@@ -22,14 +22,14 @@ namespace helloWorld.Controllers
         }
 
 		[HttpGet, Authorize]
-		public IActionResult getUserSkills()
+		public IActionResult GetUserSkills()
 		{
             _logger.LogInformation("SkillController getUserSkills");
 
 			try
 			{
 				var userId = Int32.Parse(User?.Identity?.Name);
-				var skills = _skillService.getUserSkills(userId);
+				var skills = _skillService.GetUserSkills(userId);
 
                 var genericResponse = new ResponseModel<List<Skill>>();
 				genericResponse.message = skills;
@@ -46,7 +46,7 @@ namespace helloWorld.Controllers
 
 
 		[HttpPost, Authorize]
-		public IActionResult addUserSkills(List<SkillRequestModel> skills)
+		public IActionResult AddUserSkills(List<SkillRequestModel> skills)
 		{
             _logger.LogInformation("SkillController addUserSkills");
 
@@ -55,7 +55,7 @@ namespace helloWorld.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
 
                 var genericResponse = new ResponseModel<string>();
-                _skillService.addSkill(skills, userId);
+                _skillService.AddSkill(skills, userId);
                 genericResponse.message = "success";
 
                 return Ok(genericResponse);
@@ -68,7 +68,7 @@ namespace helloWorld.Controllers
 		}
 
         [HttpPut, Authorize]
-        public IActionResult editUserSkills(EditSkillRequestModel skills)
+        public IActionResult EditUserSkills(EditSkillRequestModel skills)
         {
             _logger.LogInformation("SkillController editUserSkills");
 
@@ -77,7 +77,7 @@ namespace helloWorld.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
 
                 var genericResponse = new ResponseModel<string>();
-                _skillService.editUserSkill(skills, userId);
+                _skillService.EditUserSkill(skills, userId);
                 genericResponse.message = "success";
 
                 return Ok(genericResponse);
@@ -90,7 +90,7 @@ namespace helloWorld.Controllers
         }
 
         [HttpDelete("{id}"), Authorize]
-        public IActionResult deleteUserSkills(int id)
+        public IActionResult DeleteUserSkills(int id)
         {
             _logger.LogInformation("SkillController deleteUserSkills");
 
@@ -99,7 +99,7 @@ namespace helloWorld.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
 
                 var genericResponse = new ResponseModel<string>();
-                _skillService.deleteUserSkill(id, userId);
+                _skillService.DeleteUserSkill(id, userId);
                 genericResponse.message = "success";
 
                 return Ok(genericResponse);
@@ -112,7 +112,7 @@ namespace helloWorld.Controllers
         }
 
         [HttpPost("poc"), Authorize]
-        public IActionResult addPocSkill(AccomplishmentRequest accomplishmentRequest)
+        public IActionResult AddPocSkill(AccomplishmentRequest accomplishmentRequest)
         {
             _logger.LogInformation("SkillController addPocSkill");
 
@@ -121,7 +121,7 @@ namespace helloWorld.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
 
                 var genericResponse = new ResponseModel<string>();
-                _skillService.addUserPoc(accomplishmentRequest, userId);
+                _skillService.AddUserPoc(accomplishmentRequest, userId);
                 genericResponse.message = "success";
 
                 return Ok(genericResponse);
@@ -134,7 +134,7 @@ namespace helloWorld.Controllers
         }
 
         [HttpPut("poc"), Authorize]
-        public IActionResult updateUserPoc(EditAccomplishmentRequest accomplishmentRequest)
+        public IActionResult UpdateUserPoc(EditAccomplishmentRequest accomplishmentRequest)
         {
             _logger.LogInformation("SkillController updateUserPoc");
 
@@ -143,7 +143,7 @@ namespace helloWorld.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
 
                 var genericResponse = new ResponseModel<string>();
-                _skillService.editUserPoc(accomplishmentRequest, userId);
+                _skillService.EditUserPoc(accomplishmentRequest, userId);
                 genericResponse.message = "success";
 
                 return Ok(genericResponse);
@@ -157,7 +157,7 @@ namespace helloWorld.Controllers
         }
 
         [HttpDelete("poc/{id}"), Authorize]
-        public IActionResult deleteUserPoc(Guid id)
+        public IActionResult DeleteUserPoc(Guid id)
         {
             _logger.LogInformation("SkillController updateUserPoc");
 
@@ -165,7 +165,7 @@ namespace helloWorld.Controllers
             {
                 var userId = Int32.Parse(User?.Identity?.Name);
                 var genericResponse = new ResponseModel<string>();
-                _skillService.deleteUserPoc(id, userId);
+                _skillService.DeleteUserPoc(id, userId);
                 genericResponse.message = "success";
 
                 return Ok(genericResponse);
@@ -178,7 +178,7 @@ namespace helloWorld.Controllers
         }
 
         [HttpGet("poc"), Authorize]
-        public IActionResult getUserPoc()
+        public IActionResult GetUserPoc()
         {
             _logger.LogInformation("SkillController getUserPoc");
 
@@ -187,7 +187,7 @@ namespace helloWorld.Controllers
                 var userId = Int32.Parse(User?.Identity?.Name);
                 var genericResponse = new ResponseModel<List<AccomplishmentModel>>();
                 
-                genericResponse.message = _skillService.getUserPoc(userId);
+                genericResponse.message = _skillService.GetUserPoc(userId);
                 return Ok(genericResponse);
             }
             catch (Exception e)

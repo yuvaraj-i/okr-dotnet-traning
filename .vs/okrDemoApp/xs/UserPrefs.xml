@@ -1,30 +1,25 @@
 ﻿<Properties StartupConfiguration="{3E76A4A5-021C-4C23-A5F7-C40378C45C33}|Default">
   <MonoDevelop.Ide.ItemProperties.okrDemoApp PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="okrDemoApp/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="okrDemoApp/appsettings.json">
     <Files>
-      <File FileName="okrDemoApp/DBContex/AppDbContex.cs" />
+      <File FileName="okrDemoApp/DBContex/AppDbContex.cs" Line="1" Column="1" />
       <File FileName="okrDemoApp/Models/AccomplishmentModel.cs" />
       <File FileName="okrDemoApp/Common/AccomplishmentType.cs" />
       <File FileName="okrDemoApp/Models/AccomplishmentRequest.cs" />
-      <File FileName="okrDemoApp/Models/ActivityLog.cs" />
+      <File FileName="okrDemoApp/Models/ActivityLog.cs" Line="9" Column="26" />
       <File FileName="okrDemoApp/Models/EditSkillRequestModel.cs" />
       <File FileName="okrDemoApp/Models/ResponseModel.cs" />
       <File FileName="okrDemoApp/Models/Skill.cs" />
       <File FileName="okrDemoApp/Models/SkillRequestModel.cs" />
       <File FileName="okrDemoApp/Models/SkillSetMapping.cs" />
-      <File FileName="okrDemoApp/Models/User.cs" />
+      <File FileName="okrDemoApp/Models/User.cs" Line="10" Column="18" />
       <File FileName="okrDemoApp/Models/UserModel.cs" />
       <File FileName="okrDemoApp/Models/UserRequest.cs" />
-      <File FileName="okrDemoApp/Program.cs" Line="64" Column="6" />
+      <File FileName="okrDemoApp/Program.cs" Line="87" Column="40" />
       <File FileName="okrDemoApp/Repositories/AccomplishmentRepository.cs" />
       <File FileName="okrDemoApp/Repositories/IAccomplishmentRepository.cs" />
-      <File FileName="okrDemoApp/Repositories/ActivityLogRepository.cs" />
-      <File FileName="okrDemoApp/Repositories/IActivityLogRepository.cs" />
+      <File FileName="okrDemoApp/Repositories/ActivityLogRepository.cs" Line="49" Column="2" />
+      <File FileName="okrDemoApp/Repositories/IActivityLogRepository.cs" Line="8" Column="27" />
       <File FileName="okrDemoApp/Repositories/DashboardReposistory.cs" />
       <File FileName="okrDemoApp/Repositories/IDashboardReposistory.cs" />
       <File FileName="okrDemoApp/Repositories/IObjectiveReposistory.cs" />
@@ -35,45 +30,67 @@
       <File FileName="okrDemoApp/Repositories/SkillRepository.cs" />
       <File FileName="okrDemoApp/Repositories/SkillSetMappingRepository.cs" />
       <File FileName="okrDemoApp/Repositories/UserRepository.cs" />
-      <File FileName="okrDemoApp/Services/DashboardService.cs" Line="1" Column="1" />
-      <File FileName="okrDemoApp/Services/IDashboardService.cs" />
-      <File FileName="okrDemoApp/Services/HomeService.cs" Line="56" Column="10" />
+      <File FileName="okrDemoApp/Services/DashboardService.cs" Line="21" Column="48" />
+      <File FileName="okrDemoApp/Services/HomeService.cs" Line="1" Column="1" />
       <File FileName="okrDemoApp/Services/IHomeService.cs" />
       <File FileName="okrDemoApp/Services/IObjectiveService.cs" />
       <File FileName="okrDemoApp/Services/ISkillService.cs" />
-      <File FileName="okrDemoApp/Services/ObjectiveService.cs" />
-      <File FileName="okrDemoApp/Services/SkillService.cs" />
-      <File FileName="okrDemoApp/Utils/AuthUtils.cs" />
+      <File FileName="okrDemoApp/Services/ObjectiveService.cs" Line="1" Column="1" />
+      <File FileName="okrDemoApp/Services/SkillService.cs" Line="29" Column="1" />
+      <File FileName="okrDemoApp/Utils/AuthUtils.cs" Line="1" Column="1" />
       <File FileName="okrDemoApp/Utils/IJwtTokenUtils.cs" />
-      <File FileName="okrDemoApp/Utils/JwtTokenUtils.cs" Line="28" Column="32" />
-      <File FileName="okrDemoApp/Controllers/DashboardController.cs" Line="1" Column="1" />
-      <File FileName="okrDemoApp/Controllers/HomeController.cs" Line="54" Column="61" />
-      <File FileName="okrDemoApp/Controllers/SkillController.cs" Line="46" Column="1" />
+      <File FileName="okrDemoApp/Utils/JwtTokenUtils.cs" Line="36" Column="53" />
+      <File FileName="okrDemoApp/Controllers/DashboardController.cs" Line="48" Column="54" />
+      <File FileName="okrDemoApp/Controllers/HomeController.cs" Line="45" Column="1" />
+      <File FileName="okrDemoApp/Controllers/SkillController.cs" Line="19" Column="33" />
       <File FileName="okrDemoApp/Properties/launchSettings.json" />
-      <File FileName="okrDemoApp/Dockerfile" />
+      <File FileName="okrDemoApp/Dockerfile" Line="23" Column="1" />
       <File FileName="docker-compose.yml" />
       <File FileName=".dockerignore" />
-      <File FileName="okrDemoApp/appsettings.Development.json" />
-      <File FileName="okrDemoApp/appsettings.json" Line="4" Column="29" />
-      <File FileName="../../.microsoft/usersecrets/739878a0-4ed6-43a6-97ad-a1c00cc13397/secrets.json" Line="3" Column="2" />
-      <File FileName="okrDemoApp/Utils/SecretManagerUtil.cs" Line="45" Column="23" />
+      <File FileName="okrDemoApp/appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="okrDemoApp/appsettings.json" Line="11" Column="22" />
+      <File FileName="okrDemoApp/Utils/SecretManagerUtil.cs" />
+      <File FileName="okrDemoApp/okrDemoApp.csproj" />
+      <File FileName="../okrDemoAppTests/UnitTest1.cs" Line="5" Column="1" />
+      <File FileName="../okrDemoAppTests/Usings.cs" Line="1" Column="1" />
+      <File FileName="../okrDemoAppTests/SkillControllerTest.cs" Line="28" Column="32" />
+      <File FileName="../okrDemoAppTests/DashboardControllerTest.cs" Line="71" Column="2" />
+      <File FileName="okrDemoApp/Services/IDashboardService.cs" Line="8" Column="34" />
+      <File FileName="okrDemoApp/Utils/SampleAuthorizationMiddlewareResultHandler.cs" Line="24" Column="64" />
+      <File FileName="docker-compose.dcproj" Line="1" Column="1" />
+      <File FileName="okrDemoApp/Utils/ClaimRequirementAttribute.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="okrDemoApp" expanded="True">
-            <Node name="docker-compose" expanded="True" />
-            <Node name="okrDemoApp" expanded="True" selected="True">
+            <Node name="okrDemoApp" expanded="True">
+              <Node name="Common" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="DBContex" expanded="True" />
-              <Node name="Services" expanded="True" />
               <Node name="Utils" expanded="True" />
+              <Node name="appsettings.json" expanded="True" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="okrDemoApp" expanded="True">
+            <Node name="okrDemoAppTests" expanded="True">
+              <Node name="okrDemoAppTests" expanded="True">
+                <Node name="DashboardControllerTest" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.docker-compose PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

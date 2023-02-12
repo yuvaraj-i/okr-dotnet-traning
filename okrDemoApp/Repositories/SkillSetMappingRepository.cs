@@ -14,13 +14,13 @@ namespace okrDemoApp.Repositories
 
         }
 
-		public void addSkillSet(SkillSetMapping skillSet)
+		public void AddSkillSet(SkillSetMapping skillSet)
 		{
 			_DbContext.skillSetMappings.Add(skillSet);
 			_DbContext.SaveChanges();
 		}
 
-        public SkillSetMapping getSkillById(int skillSetId)
+        public SkillSetMapping GetSkillById(int skillSetId)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public List<Skill> getSkillByUserId(int userId)
+        public List<Skill> GetSkillByUserId(int userId)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public SkillSetMapping getSkillSetById(int userId , int skillSetId)
+        public SkillSetMapping GetSkillSetById(int userId , int skillSetId)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace okrDemoApp.Repositories
 
         }
 
-        public Skill getUserSkillBySkill(int userId, int skillId)
+        public Skill GetUserSkillBySkill(int userId, int skillId)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace okrDemoApp.Repositories
 
         }
 
-        public void updateSkillSet(SkillSetMapping skillSet)
+        public void UpdateSkillSet(SkillSetMapping skillSet)
         {
             try
             {

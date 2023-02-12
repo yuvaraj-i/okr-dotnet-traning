@@ -5,7 +5,7 @@ namespace okrDemoApp.Utils
 {
 	public interface IJwtTokenUtils
 	{
-		public string createToken(User user);
+		public string CreateToken(User user);
 	}
 
 }

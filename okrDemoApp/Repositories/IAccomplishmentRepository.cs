@@ -5,11 +5,11 @@ namespace okrDemoApp.Repositories
 {
 	public interface IAccomplishmentRepository
 	{
-		void addUserPoc(AccomplishmentModel accomplishmentModel);
-        void updateUserPoc(AccomplishmentModel accomplishmentModel);
-        List<AccomplishmentModel> getUserPocs(int userId);
-        void deleteUserPocById(AccomplishmentModel accomplishmentModel);
-        AccomplishmentModel getUserPocById(Guid accomplishmentId);
+		void AddUserPoc(AccomplishmentModel accomplishmentModel);
+        void UpdateUserPoc(AccomplishmentModel accomplishmentModel);
+        List<AccomplishmentModel> GetUserPocs(int userId);
+        void DeleteUserPocById(AccomplishmentModel accomplishmentModel);
+        AccomplishmentModel GetUserPocById(Guid accomplishmentId);
     }
 }
 

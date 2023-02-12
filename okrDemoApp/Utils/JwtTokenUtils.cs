@@ -15,7 +15,7 @@ namespace okrDemoApp.Utils
             _configuration = configuration;
 		}
 
-        public string createToken(User user)
+        public string CreateToken(User user)
         {
             try
             {

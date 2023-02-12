@@ -5,9 +5,9 @@ namespace okrDemoApp.Repositories
 {
     public interface IActivityLogRepository
     {
-        List<ActivityLog> getUserActivityLog(int userId);
-        List<ActivityLog> getUserActivityLogsByLimit(int page, int userId, int skipLimit);
-        void addUserActivityLog(ActivityLog activityLog);
+        List<ActivityLog> GetUserActivityLog(int userId);
+        List<ActivityLog> GetUserActivityLogsByLimit(int page, int userId, int skipLimit);
+        void AddUserActivityLog(ActivityLog activityLog);
     }
 }
 

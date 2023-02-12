@@ -10,6 +10,7 @@
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.IdentityModel.Tokens.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/System.IdentityModel.Tokens.Jwt.dll
+/Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Amazon.SecretsManager.Extensions.Caching.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Serilog.Settings.Configuration.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.Extensions.DependencyModel.dll
@@ -26,6 +27,8 @@
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.IdentityModel.Protocols.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.IdentityModel.Logging.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/yuvaraj/Projects/okrDemoApp/bin/Debug/AWSSDK.SecretsManager.dll
+/Users/yuvaraj/Projects/okrDemoApp/bin/Debug/AWSSDK.Core.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Newtonsoft.Json.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Scrutor.dll
 /Users/yuvaraj/Projects/okrDemoApp/bin/Debug/MySqlConnector.dll
@@ -33,6 +36,3 @@
 /Users/yuvaraj/Projects/okrDemoApp/obj/Debug/docker-compose.dcproj.AssemblyReference.cache
 /Users/yuvaraj/Projects/okrDemoApp/obj/Debug/docker-compose.dcproj.CoreCompileInputs.cache
 /Users/yuvaraj/Projects/okrDemoApp/obj/Debug/docker-compose.dcproj.CopyComplete
-/Users/yuvaraj/Projects/okrDemoApp/bin/Debug/AWSSDK.SecretsManager.dll
-/Users/yuvaraj/Projects/okrDemoApp/bin/Debug/Amazon.SecretsManager.Extensions.Caching.dll
-/Users/yuvaraj/Projects/okrDemoApp/bin/Debug/AWSSDK.Core.dll

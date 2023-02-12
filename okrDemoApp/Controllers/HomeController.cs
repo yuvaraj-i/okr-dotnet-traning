@@ -24,14 +24,14 @@ namespace okrDemoApp.Controllers
         }
 
         [HttpPost("signup")]
-        public ActionResult addUser(UserModel user)
+        public ActionResult AddUser(UserModel user)
         {
             _logger.LogInformation("Processed in ms.");
 
             try
             { 
                 var genericResponse = new ResponseModel<string>();
-                _homeService.createUser(user);
+                _homeService.CreateUser(user);
                 genericResponse.message = "Success";
 
                 return Ok(genericResponse);
@@ -44,14 +44,14 @@ namespace okrDemoApp.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult login(UserRequest request)
+        public ActionResult Login(UserRequest request)
         {
             _logger.LogInformation("Processed in ms.");
 
             try
             {
                 var genericResponse = new ResponseModel<string>();
-                genericResponse.message = _homeService.verifyUser(request);
+                genericResponse.message = _homeService.VerifyUser(request);
 
 
                 return Ok(genericResponse);
@@ -65,7 +65,7 @@ namespace okrDemoApp.Controllers
 
 
         [HttpGet("hello")]
-        public ActionResult hello()
+        public ActionResult Hello()
         {
             Console.WriteLine("Hi");
             return Ok("Hello World!");

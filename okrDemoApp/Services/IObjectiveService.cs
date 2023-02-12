@@ -5,7 +5,7 @@ namespace okrDemoApp.Services
 {
 	public interface IObjectiveService
 	{
-		public void addSkill(List<Skill> skills);
+		public void AddSkill(List<Skill> skills);
     }
 }
 

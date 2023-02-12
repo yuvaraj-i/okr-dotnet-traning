@@ -13,13 +13,13 @@ namespace okrDemoApp.Repositories
             _appDbContext = appDbContext;
 		}
 
-        public void addSkill(Skill skills)
+        public void AddSkill(Skill skills)
         {
             _appDbContext.skills.Add(skills);
             _appDbContext.SaveChanges();
         }
 
-        public Skill getSkill(string skillDescription)
+        public Skill GetSkill(string skillDescription)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public Skill getSkillById(int id)
+        public Skill GetSkillById(int id)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public void updateSkill(Skill skill)
+        public void UpdateSkill(Skill skill)
         {
             try
             {

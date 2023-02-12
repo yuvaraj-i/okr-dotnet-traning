@@ -5,8 +5,8 @@ namespace okrDemoApp.Services
 {
 	public interface IHomeService {
 
-		public string verifyUser(UserRequest userRequest);
-        public void createUser(UserModel userRequest);
+		public string VerifyUser(UserRequest userRequest);
+        public void CreateUser(UserModel userRequest);
 
     }
 

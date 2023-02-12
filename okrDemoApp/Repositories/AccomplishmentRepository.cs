@@ -15,7 +15,7 @@ namespace okrDemoApp.Repositories
 
         }
 
-        public void addUserPoc(AccomplishmentModel accomplishmentModel)
+        public void AddUserPoc(AccomplishmentModel accomplishmentModel)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace okrDemoApp.Repositories
 
         }
 
-        public void deleteUserPocById(AccomplishmentModel accomplishmentModel)
+        public void DeleteUserPocById(AccomplishmentModel accomplishmentModel)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public List<AccomplishmentModel> getUserPocs(int id)
+        public List<AccomplishmentModel> GetUserPocs(int id)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public AccomplishmentModel getUserPocById(Guid id)
+        public AccomplishmentModel GetUserPocById(Guid id)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public void updateUserPoc(AccomplishmentModel accomplishmentModel)
+        public void UpdateUserPoc(AccomplishmentModel accomplishmentModel)
         {
             try
             {

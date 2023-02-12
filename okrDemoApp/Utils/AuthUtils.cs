@@ -7,7 +7,7 @@ namespace okrDemoApp.Utils
 		{
 		}
 
-		public string getUserIdFromToken()
+		public string GetUserIdFromToken()
 		{
 			return "";
 		}

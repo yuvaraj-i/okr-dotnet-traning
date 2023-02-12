@@ -18,7 +18,7 @@ namespace okrDemoApp.Services
             _logger = logger;
         }
 
-        public List<ActivityLog> getAllActivity(int page, int userId)
+        public List<ActivityLog> GetAllActivity(int page, int userId)
         {
             _logger.LogInformation("DashboardService getAllActivity");
 
@@ -26,7 +26,7 @@ namespace okrDemoApp.Services
             {
                 int skip = (page - 1) * LIMIT;
 
-                List<ActivityLog> activityList = _activityLogRepository.getUserActivityLogsByLimit(page, userId, skip);
+                List<ActivityLog> activityList = _activityLogRepository.GetUserActivityLogsByLimit(page, userId, skip);
 
                 return activityList;
             }
@@ -37,13 +37,13 @@ namespace okrDemoApp.Services
             }
         }
 
-        public List<ActivityLog> getAllActivity(int userId)
+        public List<ActivityLog> GetAllActivity(int userId)
         {
             _logger.LogInformation("DashboardService getAllActivity");
 
             try
             {
-                return _activityLogRepository.getUserActivityLog(userId);
+                return _activityLogRepository.GetUserActivityLog(userId);
             }
 
             catch

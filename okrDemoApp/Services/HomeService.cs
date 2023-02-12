@@ -19,13 +19,13 @@ namespace okrDemoApp.Services
 
         }
 
-        public string verifyUser(UserRequest userRequest)
+        public string VerifyUser(UserRequest userRequest)
         {
             _logger.LogInformation("HomeService verifyUser");
 
             try
             {
-                User user = _userRepository.getUserByEmail(userRequest.email);
+                User user = _userRepository.GetUserByEmail(userRequest.email);
 
                 if (user == null)
                 {
@@ -45,7 +45,7 @@ namespace okrDemoApp.Services
                     throw new Exception("invaild credentials");
                 }
 
-                return _jwtTokenUtils.createToken(user);
+                return _jwtTokenUtils.CreateToken(user);
 
             }
 
@@ -55,13 +55,13 @@ namespace okrDemoApp.Services
             }
         }
 
-        public void createUser(UserModel userRequest)
+        public void CreateUser(UserModel userRequest)
         {
             _logger.LogInformation("HomeService createUser in ms.");
 
             try
             {
-                User user = _userRepository.getUserByEmail(userRequest.email);
+                User user = _userRepository.GetUserByEmail(userRequest.email);
                 if (user != null)
                 {
                     _logger.LogError("{@userRequest} given not found", userRequest);
@@ -73,7 +73,7 @@ namespace okrDemoApp.Services
                 userModel.name = userRequest.name;
                 userModel.password = userRequest.password;
 
-                _userRepository.addUser(userModel);
+                _userRepository.AddUser(userModel);
             }
 
             catch

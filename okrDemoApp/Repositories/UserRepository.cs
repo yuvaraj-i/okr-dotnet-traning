@@ -15,13 +15,13 @@ namespace okrDemoApp.Repositories
 
         }
 
-        public void addUser(User user)
+        public void AddUser(User user)
         { 
             _DbContext.users.Add(user);
             _DbContext.SaveChanges();
         }
 
-        public User getUserByEmail(string email)
+        public User GetUserByEmail(string email)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace okrDemoApp.Repositories
             }
         }
 
-        public User getUserById(int id)
+        public User GetUserById(int id)
         {
             try
             {

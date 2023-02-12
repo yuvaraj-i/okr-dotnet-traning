@@ -14,9 +14,9 @@ namespace okrDemoApp.Services
 
         }
 
-        public void addSkill(List<Skill> skills)
+        public void AddSkill(List<Skill> skills)
         {
-            _objectiveReposistory.addSkills(skills);
+            _objectiveReposistory.AddSkills(skills);
             
         }
     }

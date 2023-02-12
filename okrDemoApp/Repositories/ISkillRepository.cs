@@ -5,10 +5,10 @@ namespace okrDemoApp.Repositories
 {
 	public interface ISkillRepository
 	{
-        public void addSkill(Skill skills);
-        public Skill getSkill(string skillDescription);
-        public void updateSkill(Skill skill);
-        public Skill getSkillById(int id);
+        public void AddSkill(Skill skills);
+        public Skill GetSkill(string skillDescription);
+        public void UpdateSkill(Skill skill);
+        public Skill GetSkillById(int id);
     }
 }
 

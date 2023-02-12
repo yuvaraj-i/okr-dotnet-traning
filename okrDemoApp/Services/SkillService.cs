@@ -23,7 +23,7 @@ namespace okrDemoApp.Services
             _logger = logger;
         }
 
-        public void addSkill(List<SkillRequestModel> skills, int userId)
+        public void AddSkill(List<SkillRequestModel> skills, int userId)
         {
             _logger.LogInformation("SkillService addSkill");
 
@@ -31,17 +31,17 @@ namespace okrDemoApp.Services
             {
                 foreach (SkillRequestModel s in skills)
                 {
-                    var currentSkill = _skillRepository.getSkill(s.skillDescription);
+                    var currentSkill = _skillRepository.GetSkill(s.skillDescription);
                     var userSkill = new Skill();
                     userSkill.skillDescription = s.skillDescription;
 
                     if (currentSkill == null)
                     {
-                        _skillRepository.addSkill(userSkill);
+                        _skillRepository.AddSkill(userSkill);
                     }
 
-                    var skill = _skillRepository.getSkill(s.skillDescription);
-                    var user = _userRepository.getUserById(userId);
+                    var skill = _skillRepository.GetSkill(s.skillDescription);
+                    var user = _userRepository.GetUserById(userId);
 
 
                     var skillSet = new SkillSetMapping();
@@ -49,7 +49,7 @@ namespace okrDemoApp.Services
                     skillSet.User = user;
                     skillSet.rating = s.rating;
 
-                    _skillSetMappingRepository.addSkillSet(skillSet);
+                    _skillSetMappingRepository.AddSkillSet(skillSet);
 
                     var userActivityLog = new ActivityLog();
                     userActivityLog.acctivityAction = "Added a skill";
@@ -57,7 +57,7 @@ namespace okrDemoApp.Services
                     userActivityLog.topicType = s.skillDescription;
                     userActivityLog.date = DateTime.Today;
 
-                    _activityLogRepository.addUserActivityLog(userActivityLog);
+                    _activityLogRepository.AddUserActivityLog(userActivityLog);
                 }
             }
 
@@ -69,12 +69,12 @@ namespace okrDemoApp.Services
 
         }
 
-        public List<Skill> getUserSkills(int userId)
+        public List<Skill> GetUserSkills(int userId)
         {
             _logger.LogInformation("SkillService getUserSkills");
             try
             {
-                return _skillSetMappingRepository.getSkillByUserId(userId);
+                return _skillSetMappingRepository.GetSkillByUserId(userId);
             }
 
             catch
@@ -84,13 +84,13 @@ namespace okrDemoApp.Services
 
         }
 
-        public void editUserSkill(EditSkillRequestModel editSkillRequestModel, int userId)
+        public void EditUserSkill(EditSkillRequestModel editSkillRequestModel, int userId)
         {
             _logger.LogInformation("SkillService editUserSkill");
 
             try
             {
-                var skill = _skillSetMappingRepository.getUserSkillBySkill(userId, editSkillRequestModel.skillSetId);
+                var skill = _skillSetMappingRepository.GetUserSkillBySkill(userId, editSkillRequestModel.skillSetId);
 
                 if (skill == null)
                 {
@@ -98,13 +98,13 @@ namespace okrDemoApp.Services
                     throw new Exception($"given skill {editSkillRequestModel.skillId} not found for this {userId}");
                 }
 
-                var skillSet = _skillSetMappingRepository.getSkillSetById(userId, editSkillRequestModel.skillId);
+                var skillSet = _skillSetMappingRepository.GetSkillSetById(userId, editSkillRequestModel.skillId);
 
                 skillSet.rating = editSkillRequestModel.rating;
 
-                _skillSetMappingRepository.updateSkillSet(skillSet);
+                _skillSetMappingRepository.UpdateSkillSet(skillSet);
 
-                var user = _userRepository.getUserById(userId);
+                var user = _userRepository.GetUserById(userId);
 
                 var userActivityLog = new ActivityLog();
                 userActivityLog.acctivityAction = "updated a skill";
@@ -112,7 +112,7 @@ namespace okrDemoApp.Services
                 userActivityLog.topicType = skillSet.Skill.skillDescription;
                 userActivityLog.date = DateTime.Today;
 
-                _activityLogRepository.addUserActivityLog(userActivityLog);
+                _activityLogRepository.AddUserActivityLog(userActivityLog);
             }
 
             catch
@@ -122,13 +122,13 @@ namespace okrDemoApp.Services
 
         }
 
-        public void deleteUserSkill(int skillId, int userId)
+        public void DeleteUserSkill(int skillId, int userId)
         {
             _logger.LogInformation("SkillService editUserSkill");
 
             try
             {
-                var skillSet = _skillSetMappingRepository.getSkillSetById(userId, skillId);
+                var skillSet = _skillSetMappingRepository.GetSkillSetById(userId, skillId);
 
                 if (skillSet == null)
                 {
@@ -144,8 +144,8 @@ namespace okrDemoApp.Services
 
                 skillSet.isDeleted = true;
 
-                _skillSetMappingRepository.updateSkillSet(skillSet);
-                var user = _userRepository.getUserById(userId);
+                _skillSetMappingRepository.UpdateSkillSet(skillSet);
+                var user = _userRepository.GetUserById(userId);
 
                 if(user == null)
                 {
@@ -158,7 +158,7 @@ namespace okrDemoApp.Services
                 userActivityLog.topicType = skillSet.Skill.skillDescription;
                 userActivityLog.date = DateTime.Today;
 
-                _activityLogRepository.addUserActivityLog(userActivityLog);
+                _activityLogRepository.AddUserActivityLog(userActivityLog);
             }
 
             catch
@@ -169,13 +169,13 @@ namespace okrDemoApp.Services
 
         }
 
-        public void addUserPoc(AccomplishmentRequest accomplishmentRequest, int userId)
+        public void AddUserPoc(AccomplishmentRequest accomplishmentRequest, int userId)
         {
             _logger.LogInformation("SkillService addUserPoc");
 
             try
             {
-                var user = _userRepository.getUserById(userId);
+                var user = _userRepository.GetUserById(userId);
 
                 if (user == null)
                 {
@@ -190,7 +190,7 @@ namespace okrDemoApp.Services
                 accomplishment.User = user;
                 accomplishment.accomplishedDate = accomplishmentRequest.accomplishedDate;
 
-                _accomplishmentRepository.addUserPoc(accomplishment);
+                _accomplishmentRepository.AddUserPoc(accomplishment);
 
                 var userActivityLog = new ActivityLog();
                 userActivityLog.acctivityAction = "Added a POC";
@@ -198,7 +198,7 @@ namespace okrDemoApp.Services
                 userActivityLog.topicType = accomplishment.accomplishmentTitle;
                 userActivityLog.date = DateTime.Today;
 
-                _activityLogRepository.addUserActivityLog(userActivityLog);
+                _activityLogRepository.AddUserActivityLog(userActivityLog);
             }
 
             catch
@@ -209,20 +209,20 @@ namespace okrDemoApp.Services
 
         }
 
-        public void editUserPoc(EditAccomplishmentRequest accomplishmentRequest, int userId)
+        public void EditUserPoc(EditAccomplishmentRequest accomplishmentRequest, int userId)
         {
             _logger.LogInformation("SkillService editUserPoc");
 
             try
             {
-                var userPoc = _accomplishmentRepository.getUserPocById(accomplishmentRequest.accomplishmentId);
+                var userPoc = _accomplishmentRepository.GetUserPocById(accomplishmentRequest.accomplishmentId);
                 userPoc.accomplishmentTitle = accomplishmentRequest.accomplishmentTitle;
                 userPoc.accomplishmentDescription = accomplishmentRequest.accomplishmentDescription;
                 userPoc.accomplishedDate = accomplishmentRequest.accomplishedDate;
 
-                _accomplishmentRepository.updateUserPoc(userPoc);
+                _accomplishmentRepository.UpdateUserPoc(userPoc);
 
-                var user = _userRepository.getUserById(userId);
+                var user = _userRepository.GetUserById(userId);
 
                 var userActivityLog = new ActivityLog();
                 userActivityLog.acctivityAction = "Updates a POC";
@@ -230,7 +230,7 @@ namespace okrDemoApp.Services
                 userActivityLog.topicType = accomplishmentRequest.accomplishmentTitle;
                 userActivityLog.date = DateTime.Today;
 
-                _activityLogRepository.addUserActivityLog(userActivityLog);
+                _activityLogRepository.AddUserActivityLog(userActivityLog);
             }
 
             catch
@@ -240,13 +240,13 @@ namespace okrDemoApp.Services
 
         }
 
-        public void deleteUserPoc(Guid id, int userId)
+        public void DeleteUserPoc(Guid id, int userId)
         {
             _logger.LogInformation("SkillService deleteUserPoc");
 
             try
             {
-                var userPoc = _accomplishmentRepository.getUserPocById(id);
+                var userPoc = _accomplishmentRepository.GetUserPocById(id);
 
                 if (userPoc == null)
                 {
@@ -254,9 +254,9 @@ namespace okrDemoApp.Services
                     throw new Exception($"invalid request Poc not found with given {id}");
                 }
 
-                _accomplishmentRepository.deleteUserPocById(userPoc);
+                _accomplishmentRepository.DeleteUserPocById(userPoc);
 
-                var user = _userRepository.getUserById(userId);
+                var user = _userRepository.GetUserById(userId);
 
 
                 var userActivityLog = new ActivityLog();
@@ -265,7 +265,7 @@ namespace okrDemoApp.Services
                 userActivityLog.topicType = userPoc.accomplishmentTitle;
                 userActivityLog.date = DateTime.Today;
 
-                _activityLogRepository.addUserActivityLog(userActivityLog);
+                _activityLogRepository.AddUserActivityLog(userActivityLog);
             }
 
             catch
@@ -276,11 +276,11 @@ namespace okrDemoApp.Services
 
         }
 
-        public List<AccomplishmentModel> getUserPoc(int userId)
+        public List<AccomplishmentModel> GetUserPoc(int userId)
         {
             try
             {
-                return _accomplishmentRepository.getUserPocs(userId);
+                return _accomplishmentRepository.GetUserPocs(userId);
             }
 
             catch

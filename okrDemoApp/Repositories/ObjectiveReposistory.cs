@@ -14,7 +14,7 @@ namespace okrDemoApp.Repositories
 
         }
 
-        public void addSkills(List<Skill> skills)
+        public void AddSkills(List<Skill> skills)
         {
             //_appDbContext.
         }
